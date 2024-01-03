@@ -1,56 +1,54 @@
-import React, { useState, useEffect } from "react";
-import JoblyApi from "../common/api";
-import LoadingSpinner from "../common/loadingSpinner";
-import CompanyCard from "./CompanyCard";
-
+import React, { useState, useEffect } from 'react';
+import JoblyApi from '../common/api';
+import LoadingSpinner from '../common/LoadingSpinner';
+import CompanyCard from './CompanyCard';
 
 /** Shows list of companies
  *
  * State: companies
- * 
+ *
  * On mount, retrieves companies from API
- * 
+ *
  * When search form submitted, retrieves companies filtered by that name
-*/
+ */
 
 const CompanyList = () => {
-  console.debug("CompanyList");
+	console.debug('CompanyList');
 
-  const [companies, setCompanies] = useState([]);
+	const [companies, setCompanies] = useState([]);
 
-  useEffect(() => {
-    async function getAllCompaniesOnMount() {
-      const res = await JoblyApi.getCompanies();
-      setCompanies(res);
-    }
-    getAllCompaniesOnMount();
-  }, []);
+	useEffect(() => {
+		async function getAllCompaniesOnMount() {
+			const res = await JoblyApi.getCompanies();
+			setCompanies(res);
+		}
+		getAllCompaniesOnMount();
+	}, []);
 
-  async function searchCompanies(name) {
-    let companies = await JoblyApi.getCompanies(name);
-    setCompanies(companies);
-  }
+	async function searchCompanies(name) {
+		let companies = await JoblyApi.getCompanies(name);
+		setCompanies(companies);
+	}
 
-  if (!companies) return <LoadingSpinner />;
+	if (!companies) return <LoadingSpinner />;
 
-  return (
-    <div className="ComppanyList">
-      <h1>Explore Companies</h1>
-      {/* <SearchForm /> */}
-      {/* <CompanyCardList companies={companies} /> */}
+	return (
+		<div className="ComppanyList">
+			<h1>Explore Companies</h1>
+			{/* <SearchForm /> */}
+			{/* <CompanyCardList companies={companies} /> */}
 
-      {companies.map(comp => (
-        <CompanyCard
-        key={comp.handle}
-        handle={comp.handle}
-        name={comp.name}
-        description={comp.description}
-        logoUrl={comp.logoUrl}
-    />
-
-      ))}
-    </div> 
-  );
-}
+			{companies.map((comp) => (
+				<CompanyCard
+					key={comp.handle}
+					handle={comp.handle}
+					name={comp.name}
+					description={comp.description}
+					logoUrl={comp.logoUrl}
+				/>
+			))}
+		</div>
+	);
+};
 
 export default CompanyList;
