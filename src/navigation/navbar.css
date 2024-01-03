@@ -1,0 +1,29 @@
+.NavBar {
+  background-color: #333;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+  margin-right: 10px;
+}
+
+.NavLink {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.NavLink:hover {
+  background-color: #555;
+}
