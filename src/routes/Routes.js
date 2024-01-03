@@ -9,7 +9,9 @@ import SignupForm from "../forms/SignupForm";
 import EditProfileForm from "../forms/EditProfileForm";
 import NavBar from "../navigation/NavBar";
 
+// TODO: delete later
 import CompanyCard from "../companies/CompanyCard";
+import JobCard from "../jobs/JobCard";
 
 
 function App() {
@@ -22,7 +24,9 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="companies" element={<CompanyList />} />
 
+          {/* TODO: delete later */}
           <Route path="/companycard" element = {<CompanyCard />} />
+          <Route path="/jobcard" element = {<JobCard />} />
 
           <Route path="/companies/:handle" element={<CompanyDetails />} />
           <Route path="/jobs" element={<JobList />} />
