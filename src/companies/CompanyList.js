@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import JoblyApi from "../common/api";
 import LoadingSpinner from "../common/loadingSpinner";
+import CompanyCard from "./CompanyCard";
 
 
 /** Shows list of companies
@@ -38,10 +39,19 @@ const CompanyList = () => {
       {/* <SearchForm /> */}
       {/* <CompanyCardList companies={companies} /> */}
 
-      {companies.map(company => (
-        <div key={company.handle}>
-          {company.name}
-        </div>
+      {companies.map(comp => (
+        // <div key={company.handle}>
+        //   {company.name}
+        // </div>
+
+        <CompanyCard
+        key={comp.handle}
+        handle={comp.handle}
+        name={comp.name}
+        description={comp.description}
+        logoUrl={comp.logoUrl}
+    />
+
       ))}
     </div> 
   );

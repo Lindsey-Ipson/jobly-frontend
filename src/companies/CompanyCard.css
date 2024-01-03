@@ -1,0 +1,52 @@
+.CompanyCard {
+  max-height: 250px;
+  color: inherit;
+  border-radius: 0;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  position: relative; /* Add position relative to make absolute positioning work */
+}
+
+.CompanyCard img {
+  width: 50px;
+}
+
+.CompanyCard:hover {
+  text-decoration: none;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.card-text {
+  margin-bottom: 5px;
+}
+
+ /* TODO: possibly delete later */
+/* .num-employees {
+  color: gray;
+  font-style: italic;
+  padding: 0 12px 12px 0;
+  position: absolute;
+  right: 0;
+  bottom: 0
+} */
+
+/* Large screens */
+@media (min-width: 768px) {
+  .CompanyCard {
+    margin: 1rem 200px;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .CompanyCard {
+    margin: 1rem 100px;
+  }
+}
+
+/* Small screens */
+@media (max-width: 767px) {
+  .CompanyCard {
+    margin: 1rem;
+  }
+}

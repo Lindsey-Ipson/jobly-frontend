@@ -7,7 +7,9 @@ import JobList from "../jobs/JobList";
 import LoginForm from "../forms/LoginForm";
 import SignupForm from "../forms/SignupForm";
 import EditProfileForm from "../forms/EditProfileForm";
-import NavBar from "../navigation/navbar";
+import NavBar from "../navigation/NavBar";
+
+import CompanyCard from "../companies/CompanyCard";
 
 
 function App() {
@@ -19,6 +21,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="companies" element={<CompanyList />} />
+
+          <Route path="/companycard" element = {<CompanyCard />} />
+
           <Route path="/companies/:handle" element={<CompanyDetails />} />
           <Route path="/jobs" element={<JobList />} />
           <Route path="/login" element={<LoginForm />} />
