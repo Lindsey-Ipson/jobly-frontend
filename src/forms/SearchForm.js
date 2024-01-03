@@ -3,21 +3,19 @@ import React, { useState } from "react";
 /** Form for searching via name of companies or jobs
  */
 
-const SeatchForm = (term, searchItems) => {
-  const INITIAL_STATE = { term: "" };
+const SearchForm = ({ searchItems }) => {
+  const INITIAL_STATE = { searchTerm: "" };
   const [searchTerm, setSearchTerm] = useState('');
 
-  /** Submit form and search for companies */
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    searchItems(searchTerm);
-    setSearchTerm('');
+    searchItems(searchTerm.trim() || undefined);
+    setSearchTerm(searchTerm.trim());
   };
 
-  /** Update form fields */
   const handleChange = (evt) => {
-    const { name, value } = evt.target;
-    setFormData((fData) => ({ ...fData, [name]: value }));
+    const { value } = evt.target;
+    setSearchTerm(value);
   };
 
   return (
@@ -25,7 +23,7 @@ const SeatchForm = (term, searchItems) => {
       <input
         id="term"
         name="term"
-        value={formData.term}
+        value={searchTerm}
         onChange={handleChange}
       />
       <button>Submit</button>
@@ -33,4 +31,4 @@ const SeatchForm = (term, searchItems) => {
   );
 };
 
-export default SeatchForm;
+export default SearchForm;
