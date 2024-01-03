@@ -1,4 +1,5 @@
 .CompanyCard {
+  text-decoration: none;
   max-height: 250px;
   color: inherit;
   border-radius: 0;

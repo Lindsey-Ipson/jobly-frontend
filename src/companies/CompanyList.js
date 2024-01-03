@@ -40,10 +40,6 @@ const CompanyList = () => {
       {/* <CompanyCardList companies={companies} /> */}
 
       {companies.map(comp => (
-        // <div key={company.handle}>
-        //   {company.name}
-        // </div>
-
         <CompanyCard
         key={comp.handle}
         handle={comp.handle}
