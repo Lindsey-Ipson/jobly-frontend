@@ -3,7 +3,7 @@ import './JobCard.css';
 
 function JobCard ({
   // TODo change default values
-  equity="0", id=7, salary=157000, title="Technical brewer", companyName="Sample Company"}) {
+  title, equity="Not listed", salary="Not listed", companyName=""}) {
   return (
     <div className="JobCard card text-start">
       <div className="card-body">
