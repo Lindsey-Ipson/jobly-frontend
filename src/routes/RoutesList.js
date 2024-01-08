@@ -7,7 +7,6 @@ import JobList from "../jobs/JobList";
 import LoginForm from "../forms/LoginForm";
 import SignupForm from "../forms/SignupForm";
 import EditProfileForm from "../forms/EditProfileForm";
-import ProtectedRoute from "./ProtectedRoute";
 import UserContext from "../common/UserContext";
 
 
