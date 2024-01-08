@@ -7,11 +7,12 @@ import NavBar from "./navigation/NavBar";
 import JoblyApi from "./common/api";
 import LoadingSpinner from "./common/LoadingSpinner";
 import UserContext from "./common/UserContext";
+import useLocalStorageState from "./hooks/useLocalStorageState";
 import './App.css';
 
 function App() {
 
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useLocalStorageState("authToken");
   const [currentUser, setCurrentUser] = useState(null);
   const [userInfoLoaded, setUserInfoLoaded] = useState(false);
 
@@ -37,7 +38,9 @@ function App() {
   async function login (data) {
     try {
       let token = await JoblyApi.login(data);
+      console.log("token", token);
       setToken(token);
+      console.log("token", token);
       return {loggedIn: true};
     }
     catch (errs) {
