@@ -37,7 +37,6 @@ function App() {
     try {
       let token = await JoblyApi.login(data);
       setToken(token);
-      console.log("token", token);
       return {loggedIn: true};
     }
     catch (errs) {
@@ -50,11 +49,11 @@ function App() {
     try {
       let token = await JoblyApi.signup(data);
       setToken(token);
-      return "Signed up!";
+      return {signedUp: true};
     }
-    catch (err) {
-      return err;
-    }
+    catch (errs) {
+      return {signedUp: false, errs: errs}
+    };
   }
 
   if (!userInfoLoaded) return <LoadingSpinner />;

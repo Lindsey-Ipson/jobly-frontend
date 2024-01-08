@@ -28,7 +28,7 @@ function RoutesList({ login, signup }) {
       <Route path="/companies/:handle" element={<CompanyDetails />} />
       <Route path="/jobs" element={<JobList />} />
       <Route path="/login" element={<LoginForm login={ login }/>} />
-      <Route path="/signup" element={<SignupForm />} />
+      <Route path="/signup" element={<SignupForm signup={ signup }/>} />
       <Route path="/profile" element={<EditProfileForm />} />
       </ Routes>
   );
