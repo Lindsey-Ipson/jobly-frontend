@@ -6,6 +6,7 @@ import RoutesList from "./routes/RoutesList";
 import NavBar from "./navigation/NavBar";
 import JoblyApi from "./common/api";
 import LoadingSpinner from "./common/LoadingSpinner";
+import UserContext from "./common/UserContext";
 import './App.css';
 
 function App() {
@@ -56,13 +57,20 @@ function App() {
     };
   }
 
+  async function logout () {
+    setCurrentUser(null);
+    setToken(null);
+  }
+
   if (!userInfoLoaded) return <LoadingSpinner />;
 
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar />
-        <RoutesList login={ login } signup={ signup }/>
+        <UserContext.Provider value={{currentUser, setCurrentUser}}>
+          <NavBar logout={ logout }/>
+          <RoutesList login={ login } signup={ signup } />
+        </UserContext.Provider>
       </BrowserRouter>
     </div>
   );

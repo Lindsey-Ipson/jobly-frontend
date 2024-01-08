@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import UserContext from "../common/UserContext";
 import "./navbar.css";
 
-function NavBar() {
-  return (
+function NavBar({ logout }) {
+  const { currentUser } = useContext(UserContext);
+
+  const loggedInNavBar = (
     <nav className="NavBar">
       <ul>
         <li>
@@ -27,6 +30,23 @@ function NavBar() {
           </NavLink>
         </li>
         <li>
+          <NavLink exact to="/" onClick={ logout } className="NavLink">
+            Logout {currentUser && currentUser.username}
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+  );
+
+  const loggedOutNavBar = (
+    <nav className="NavBar">
+      <ul>
+        <li>
+          <NavLink exact to="/" className="NavLink">
+            Jobly
+          </NavLink>
+        </li>
+        <li>
           <NavLink exact to="/login" className="NavLink">
             Login
           </NavLink>
@@ -36,14 +56,11 @@ function NavBar() {
             Signup
           </NavLink>
         </li>
-        <li>
-          <NavLink exact to="/logout" className="NavLink">
-            Logout
-          </NavLink>
-        </li>
       </ul>
     </nav>
   );
+
+  return currentUser ? loggedInNavBar : loggedOutNavBar;
 }
 
 export default NavBar;

@@ -9,7 +9,7 @@ function CompanyCard ({ name, handle, description }) {
     <Link className="CompanyCard card text-start" to={`/companies/${handle}`}>
       <div className="card-body">
         <h5 className="card-title">{ name }</h5>
-        <p class="card-text">{ description }</p>
+        <p className="card-text">{ description }</p>
       </div>
     </Link>
   )
