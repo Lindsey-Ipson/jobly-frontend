@@ -24,8 +24,6 @@ function CompanyDetails () {
 
   const { name, description, jobs } = company;
 
-  console.log(jobs);
-
 	return (
 		<div className="CompanyDetails">
 			<h1>{name}</h1>

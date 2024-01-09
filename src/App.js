@@ -14,6 +14,7 @@ function App() {
 
   const [token, setToken] = useLocalStorageState("authToken");
   const [currentUser, setCurrentUser] = useState(null);
+  const [applicationIds, setApplicationIds] = useState(new Set([]));
   const [userInfoLoaded, setUserInfoLoaded] = useState(false);
 
   useEffect(() => {
@@ -23,6 +24,12 @@ function App() {
           let { username } = jwtDecode(token);
           JoblyApi.token = token;
           let currentUser = await JoblyApi.getCurrentUser(username);
+
+          console.log("currentUser", currentUser);
+          console.log("currentUser.applications", currentUser.applications);
+
+
+          setApplicationIds(new Set(currentUser.applications));
           setCurrentUser(currentUser);
         } catch (err) {
           setCurrentUser(null);
@@ -65,12 +72,23 @@ function App() {
     setToken(null);
   }
 
+  function currentUserAppliedToJob (id) {
+    return applicationIds.has(id);
+  }
+
+  function applyToJob (id) {
+    if (!currentUserAppliedToJob(id)) {
+      JoblyApi.applyToJob(currentUser.username, id);
+      setApplicationIds(new Set([...applicationIds, id]));
+    }
+  }
+
   if (!userInfoLoaded) return <LoadingSpinner />;
 
   return (
     <div className="App">
       <BrowserRouter>
-        <UserContext.Provider value={{currentUser, setCurrentUser}}>
+        <UserContext.Provider value={{currentUser, setCurrentUser, currentUserAppliedToJob, applyToJob}}>
           <NavBar logout={ logout }/>
           <RoutesList login={ login } signup={ signup } />
         </UserContext.Provider>

@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Homepage from "../homepage/Homepage";
 import CompanyList from "../companies/CompanyList";
+import CompanyDetails from "../companies/CompanyDetails";
 import JobList from "../jobs/JobList";
 import LoginForm from "../forms/LoginForm";
 import SignupForm from "../forms/SignupForm";
@@ -12,7 +13,6 @@ import UserContext from "../common/UserContext";
 
 function RoutesList({ login, signup }) {
   const { currentUser } = useContext(UserContext);
-  console.log("currentUser", currentUser);
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
@@ -21,6 +21,7 @@ function RoutesList({ login, signup }) {
       {currentUser && (
         <>
           <Route path="companies" element={<CompanyList />} />
+          <Route path="companies/:handle" element={<CompanyDetails />} />
           <Route path="jobs" element={<JobList />} />
           <Route path="profile" element={<EditProfileForm />} />
         </>
