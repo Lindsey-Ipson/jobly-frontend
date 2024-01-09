@@ -1,21 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "./SearchForm.css";
-
-/** Form for searching via name of companies or jobs
- */
+import useFields from "../hooks/useFields";
 
 const SearchForm = ({ searchItems }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const initialState = {
+    term: '',
+  };
+
+  const [formData, handleChange] = useFields(initialState);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    searchItems(searchTerm.trim() || undefined);
-    setSearchTerm(searchTerm.trim());
-  };
-
-  const handleChange = (evt) => {
-    const { value } = evt.target;
-    setSearchTerm(value);
+    searchItems(formData.term.trim() || undefined);
   };
 
   return (
@@ -23,10 +19,10 @@ const SearchForm = ({ searchItems }) => {
       <input
         id="term"
         name="term"
-        value={searchTerm}
+        value={formData.term}
         onChange={handleChange}
       />
-      <button>Submit</button>
+      <button type="submit">Submit</button>
     </form>
   );
 };

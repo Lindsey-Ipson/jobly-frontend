@@ -1,27 +1,21 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AlertMessage from '../common/AlertMessage';
+import useFields from '../hooks/useFields';
 
 function SignupForm({ signup }) {
 	const navigate = useNavigate();
 
-	const [formData, setFormData] = useState({
+	const initialState = {
 		username: '',
 		password: '',
 		firstName: '',
 		lastName: '',
 		email: '',
-	});
-
-	const [errors, setErrors] = useState([]);
-
-	const handleChange = (evt) => {
-		const { name, value } = evt.target;
-		setFormData((fData) => ({
-			...fData,
-			[name]: value,
-		}));
 	};
+
+	const [formData, handleChange] = useFields(initialState);
+	const [errors, setErrors] = useState([]);
 
 	async function handleSubmit(evt) {
 		evt.preventDefault();
