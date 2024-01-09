@@ -28,7 +28,6 @@ function LoginForm ({ login }) {
     navigate("/companies");
     }
     else {
-      console.log("loginRes", loginRes)
       setErrors(loginRes.errs);
     }
   }

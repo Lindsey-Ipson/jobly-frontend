@@ -1,7 +1,6 @@
 .NavBar {
   background-color: #17553b;
   padding: 10px;
-  /* margin-bottom: 30px; */
 }
 
 ul {
@@ -26,6 +25,5 @@ li {
 
 .NavLink:hover {
   background-color: #14781d;
-  /* color: black; */
   border-radius: 5px;
 }

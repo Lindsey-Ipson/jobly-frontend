@@ -3,7 +3,7 @@ import ErrorAlert from "../common/ErrorAlert";
 import JoblyApi from "../common/api";
 import UserContext from "../common/UserContext";
 
-function EditProfileForm({ updateUser }) {
+function EditProfileForm () {
   const { currentUser, setCurrentUser } = useContext(UserContext);
 
   const [formData, setFormData] = useState({
@@ -22,7 +22,6 @@ function EditProfileForm({ updateUser }) {
       ...fData,
       [name]: value
     }));
-    // TODO
     setErrors([]);
   };
 
@@ -32,17 +31,12 @@ function EditProfileForm({ updateUser }) {
     // Delete username from form data as it is not editable and not accepted by API JSON schema
     delete formData.username;
 
-    console.log("formData", formData);
-
     let updatedUser;
 
     try {
-    updatedUser = await JoblyApi.updateProfile(currentUser.username, formData);
-    console.log("updatedUser", updatedUser);
-    console.log("currentUser after update submit", currentUser);
+      updatedUser = await JoblyApi.updateProfile(currentUser.username, formData);
     }
     catch (errs) {
-      console.log("errs", errs);
       setErrors(errs);
     }
 

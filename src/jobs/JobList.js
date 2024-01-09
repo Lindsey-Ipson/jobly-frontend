@@ -5,9 +5,7 @@ import JoblyApi from '../common/api';
 import LoadingSpinner from '../common/LoadingSpinner';
 
 const JobList = () => {
-	console.debug('JobList');
-
-	const [jobs, setJobs] = useState([]);
+  const [jobs, setJobs] = useState([]);
 
 	useEffect(() => {
 		async function getAllJobsOnMount() {

@@ -1,12 +1,6 @@
-/* .Homepage {
-  color: red;
-  background-image: url('../images/background2.jpg');
-} */
-
-
 .Homepage {
   color: darkblue;
-  background-image: url('../images/background2.jpg');
+  background-image: url('../images/background-image.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -15,7 +9,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative; /* Set the position to relative */
+  position: relative;
 }
 
 .ContentBox {
@@ -27,19 +21,5 @@
   top: 33%;
   transform: translateY(-50%);
   width: 80%;
-  /* box-shadow: 100px 100px 200px rgba(2, 1, 23, 0.853); */
+  box-shadow: 100px 100px 200px rgba(2, 1, 23, 0.853);
 }
-
-
-
-
-
-
-
-/* .Homepage {
-  background: url('.../public/background2.jpg') no-repeat;
-} */
-
-
-
-  /* background: url('.../public/damian-zaleski-RYyr-k3Ysqg-unsplash.jpg') no-repeat; */

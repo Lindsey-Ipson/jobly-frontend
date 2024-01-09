@@ -4,17 +4,7 @@ import LoadingSpinner from '../common/LoadingSpinner';
 import CompanyCard from './CompanyCard';
 import SearchForm from '../forms/SearchForm';
 
-/** Shows list of companies
- *
- * State: companies
- *
- * On mount, retrieves companies from API
- *
- * When search form submitted, retrieves companies filtered by that name
- */
-
 const CompanyList = () => {
-	console.debug('CompanyList');
 
 	const [companies, setCompanies] = useState([]);
 
@@ -44,7 +34,6 @@ const CompanyList = () => {
 					handle={comp.handle}
 					name={comp.name}
 					description={comp.description}
-					logoUrl={comp.logoUrl}
 				/>
 			))}
 		</div>

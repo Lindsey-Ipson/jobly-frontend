@@ -2,7 +2,7 @@ import React from "react";
 import UserContext from "../common/UserContext";
 import './JobCard.css';
 
-function JobCard({id, title, equity="Not listed",       salary="Not listed", companyName=""}) {
+function JobCard({id, title, equity="Not listed", salary="Not listed", companyName=""}) {
 
   const { currentUserAppliedToJob, applyToJob } = React.useContext(UserContext);
 

@@ -5,7 +5,6 @@ import "./SearchForm.css";
  */
 
 const SearchForm = ({ searchItems }) => {
-  const INITIAL_STATE = { searchTerm: "" };
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSubmit = (evt) => {

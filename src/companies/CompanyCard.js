@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Card, CardTitle, CardText, Button } from 'reactstrap';
 import './CompanyCard.css';
 
-// Todo: remove default values
 function CompanyCard ({ name, handle, description }) {
   return (
     <Link className="CompanyCard card text-start" to={`/companies/${handle}`}>

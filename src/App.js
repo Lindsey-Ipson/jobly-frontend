@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
-// import jwtDecode from "jwt-decode";
 import { jwtDecode } from "jwt-decode";
 import RoutesList from "./routes/RoutesList";
 import NavBar from "./navigation/NavBar";
@@ -24,11 +23,6 @@ function App() {
           let { username } = jwtDecode(token);
           JoblyApi.token = token;
           let currentUser = await JoblyApi.getCurrentUser(username);
-
-          console.log("currentUser", currentUser);
-          console.log("currentUser.applications", currentUser.applications);
-
-
           setApplicationIds(new Set(currentUser.applications));
           setCurrentUser(currentUser);
         } catch (err) {
@@ -45,13 +39,10 @@ function App() {
   async function login (data) {
     try {
       let token = await JoblyApi.login(data);
-      console.log("token", token);
       setToken(token);
-      console.log("token", token);
       return {loggedIn: true};
     }
     catch (errs) {
-      console.error("Attempt to login failed.", "Errors:", errs);
       return {loggedIn: false, errs: errs}
     };
     }

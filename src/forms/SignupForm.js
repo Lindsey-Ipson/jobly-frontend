@@ -23,7 +23,7 @@ function SignupForm({ signup }) {
     }));
   };
 
-    async function handleSubmit (evt) {
+  async function handleSubmit (evt) {
     evt.preventDefault();
     
     const signupRes = await signup(formData);
@@ -31,7 +31,6 @@ function SignupForm({ signup }) {
     navigate("/companies");
     }
     else {
-      console.log("signupRes", signupRes)
       setErrors(signupRes.errs);
     }
   }

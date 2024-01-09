@@ -26,9 +26,9 @@ function CompanyDetails () {
 
 	return (
 		<div className="CompanyDetails">
-			<h1>{name}</h1>
-			<p className="CompanyDetails-description">{description}</p>
-      <JobCardList jobs={jobs} />
+			<h1>{ name }</h1>
+			<p className="CompanyDetails-description">{ description }</p>
+      <JobCardList jobs={ jobs } />
 		</div>
 	);
 }
