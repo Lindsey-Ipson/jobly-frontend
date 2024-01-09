@@ -1,3 +1,24 @@
 .CompanyDetails-description {
   font-size: 1.35rem;
 }
+
+/* Large screens */
+@media (min-width: 768px) {
+  .CompanyDetails-description {
+    margin: 1rem 200px;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .CompanyDetails-description {
+    margin: 1rem 100px;
+  }
+}
+
+/* Small screens */
+@media (max-width: 767px) {
+  .CompanyDetails-description {
+    margin: 1rem;
+  }
+}
